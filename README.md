@@ -32,9 +32,11 @@ ListG - interface para gerar uma lista em formato csv dos gastos inseridos pelo 
 'Adicionar Item' - ao clicar a lista sera criada automaticamente junto com o item inserido. Cada vez que o botão é pressionado, o item atual sera adicionado na lista em formato CSV.
 
 
-_____________________________________________________                                                    |
-|  Esse programa ainda está sendo modificado,        |
-|  algumas alterações e melhorias são necessárias.   |
-|____________________________________________________|
+
+
+____________________________________________________       
+  Esse programa ainda está sendo modificado,        
+  algumas alterações e melhorias são necessárias.  
+____________________________________________________
 
 
