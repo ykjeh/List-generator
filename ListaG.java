@@ -327,6 +327,7 @@ private StringBuilder gastos = new StringBuilder();
                     String LinhasSemAssento = Normalizer.normalize(categoria.toString(), Normalizer.Form.NFD)
                                 .replaceAll("[^\\p{ASCII}]", "");
                     writer.write(item + ";" + preco + ";" + data + ";" + LinhasSemAssento+"\n");
+                    JOptionPane.showMessage(null, "Item adicionado no arquivo CSV.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Erro ao inserir novos itens.",
                    "Erro", JOptionPane.WARNING_MESSAGE);
