@@ -34,9 +34,11 @@ ListG - interface para gerar uma lista em formato csv dos gastos inseridos pelo 
 
 
 
+
+
 ____________________________________________________       
-  Esse programa ainda está sendo modificado,        
-  algumas alterações e melhorias são necessárias.  
+*  Esse programa ainda está sendo modificado,        
+*  algumas alterações e melhorias são necessárias.  
 ____________________________________________________
 
 
