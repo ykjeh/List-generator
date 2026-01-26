@@ -36,6 +36,7 @@ public class ListaC extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -89,6 +90,14 @@ public class ListaC extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Visualizar Lista");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,6 +122,7 @@ public class ListaC extends javax.swing.JFrame {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton3)
                             .addComponent(jButton1)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -134,7 +144,9 @@ public class ListaC extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,14 +157,17 @@ public class ListaC extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>                        
 private List<String> alimentos = new ArrayList<>();
  private List<String> higiene = new ArrayList<>();
  private List<String> outros = new ArrayList<>();
+ StringBuilder ListaAtual = new StringBuilder();
+ 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
 
             String item = jTextField1.getText();
@@ -170,16 +185,19 @@ private List<String> alimentos = new ArrayList<>();
                 try {
                     if (jComboBox1.getSelectedItem().equals("Alimentos")) {
                         alimentos.add(item);
+                        ListaAtual.append(item + "\n");
                         JOptionPane.showMessageDialog(null, "Item adicionado",
                             "Aviso", JOptionPane.WARNING_MESSAGE);
                     
                     } else if (jComboBox1.getSelectedItem().equals("Higiene")) {
                         higiene.add(item);
+                        ListaAtual.append(item + "\n");
                         JOptionPane.showMessageDialog(null, "Item adicionado",
                             "Aviso", JOptionPane.WARNING_MESSAGE);
                         }
                     else if (jComboBox1.getSelectedItem().equals("Outros")) {
                         outros.add(item);
+                        ListaAtual.append(item + "\n");
                         JOptionPane.showMessageDialog(null, "Item adicionado",
                             "Aviso", JOptionPane.WARNING_MESSAGE);
                     }
@@ -198,12 +216,12 @@ private List<String> alimentos = new ArrayList<>();
             
         
     }                                        
-
+StringBuilder CriarLista = new StringBuilder();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         String caminho = System.getProperty("user.home") + "\\Desktop\\lista_compras.txt";
         Path Caminho = Paths.get(caminho);
-        StringBuilder CriarLista = new StringBuilder();
+        //StringBuilder CriarLista = new StringBuilder();
         
         if (Caminho.toFile().exists()){
             Caminho.toFile().delete();
@@ -286,6 +304,13 @@ private List<String> alimentos = new ArrayList<>();
         
     }                                        
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Lista Atual:\n" + ListaAtual,
+                            "Aviso", JOptionPane.WARNING_MESSAGE);
+        
+    }                                        
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -297,6 +322,7 @@ private List<String> alimentos = new ArrayList<>();
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
